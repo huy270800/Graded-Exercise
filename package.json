@@ -1,0 +1,30 @@
+{
+  "name": "shop-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon app.js",
+    "start-server": "node app.js"
+  },
+  "author": "Huy Bui",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "chai": "^4.3.3",
+    "chai-http": "^4.3.0",
+    "cloudinary": "^1.25.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^8.3.0",
+    "mongoose": "^5.11.18",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.7",
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.6"
+  }
+}
