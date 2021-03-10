@@ -1,0 +1,462 @@
+openapi: 3.0.0
+info:
+  title: Graded-exercise
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/products/{productId}':
+    parameters:
+      - schema:
+          type: string
+        name: productId
+        in: path
+        required: true
+    get:
+      summary: Get User Info by User ID
+      tags: []
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
+        '404':
+          description: |
+            Products not existed
+        '':
+          description: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             "_id": "60421efb2e5ec94a18dc46a4",
+                    "title": "Angry Bird 2",
+                    "category": "Entertainment",
+                    "location": "Oulu",
+                    "images": "https://res.cloudinary.com/huy1234/image/upload/v1614946042/testing/545dc1ec-e484-4eeb-8df5-fa04954602b9.jpg",
+                    "price": 10,
+                    "description": "Newly bought",
+                    "deliveryType": "No",
+                    "contact": "alo3@alo123.fi",
+                    "author": "alo 33333",
+                    "created": "2021-03-05T12:07:23.198Z",
+                    "createdAt": "2021-03-05T12:07:23.201Z",
+                    "updatedAt": "2021-03-05T12:07:23.201Z",
+                    "__v": 0
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: productId
+          required: true
+  /add-product:
+    post:
+      summary: Create New User
+      operationId: post-user
+      responses:
+        '200':
+          description: product added successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                New User Bob Fellow:
+                  value:
+                    id: 12
+                    firstName: Bob
+                    lastName: Fellow
+                    email: bob.fellow@gmail.com
+                    dateOfBirth: '1996-08-24'
+                    emailVerified: false
+                    createDate: '2020-11-18'
+        '400':
+          description: Missing Required Information
+        '401':
+          description: You need to login to add product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ref:
+                  $ref: ''
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new user.
+      description: Add a new products
+    parameters: []
+  /products:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: |-
+            {
+                "products": [
+                    {
+                        "_id": "60421cc6a385b14504d0f077",
+                        "title": "Audi Q7",
+                        "category": "Car",
+                        "location": "Helsinki",
+                        "images": "https://res.cloudinary.com/huy1234/image/upload/v1614945478/testing/88bf09f6-28e6-441b-aaed-a8e6aeab5c40.jpg",
+                        "price": 50000,
+                        "description": "Half year in use",
+                        "deliveryType": "No",
+                        "contact": "358 44931 2214",
+                        "author": "John Doe",
+                        "created": "2021-03-05T11:57:58.968Z",
+                        "createdAt": "2021-03-05T11:57:58.971Z",
+                        "updatedAt": "2021-03-05T11:57:58.971Z",
+                        "__v": 0
+                    },
+                    {
+                        "_id": "60421d44a385b14504d0f078",
+                        "title": "Beemo",
+                        "category": "Toy",
+                        "location": "Tampere",
+                        "images": "https://res.cloudinary.com/huy1234/image/upload/v1614945603/testing/0764c291-fff6-4dbb-9896-d9c5fb851b23.png",
+                        "price": 20,
+                        "description": "Newly bought",
+                        "deliveryType": "No",
+                        "contact": "Joe@123joe.com",
+                        "author": "Bo Bo",
+                        "created": "2021-03-05T12:00:04.290Z",
+                        "createdAt": "2021-03-05T12:00:04.291Z",
+                        "updatedAt": "2021-03-05T12:00:04.291Z",
+                        "__v": 0
+                    },
+                    {
+                        "_id": "60421d63a385b14504d0f079",
+                        "title": "Yellow chicken",
+                        "category": "Toy",
+                        "location": "Vaasa",
+                        "images": "https://res.cloudinary.com/huy1234/image/upload/v1614945635/testing/80490ab2-6eee-4541-9b2d-79d69d365d3c.jpg",
+                        "price": 30,
+                        "description": "Newly bought",
+                        "deliveryType": "No",
+                        "contact": "huy@123joe.com",
+                        "author": "huy",
+                        "created": "2021-03-05T12:00:35.386Z",
+                        "createdAt": "2021-03-05T12:00:35.387Z",
+                        "updatedAt": "2021-03-05T12:00:35.387Z",
+                        "__v": 0
+                    },
+                    {
+                        "_id": "60421ddba385b14504d0f07b",
+                        "title": "Angry Octapuses",
+                        "category": "Toy",
+                        "location": "Oulu",
+                        "images": "https://res.cloudinary.com/huy1234/image/upload/v1614945755/testing/1dbd1b1d-f647-4cda-b1a0-2a5e0b570012.jpg",
+                        "price": 25,
+                        "description": "Newly bought",
+                        "deliveryType": "No",
+                        "contact": "test@123joe.com",
+                        "author": "test",
+                        "created": "2021-03-05T12:02:35.539Z",
+                        "createdAt": "2021-03-05T12:02:35.539Z",
+                        "updatedAt": "2021-03-05T12:02:35.539Z",
+                        "__v": 0
+                    },
+                    {
+                        "_id": "60421e04a385b14504d0f07c",
+                        "title": "Poro",
+                        "category": "Toy",
+                        "location": "Oulu",
+                        "images": "https://res.cloudinary.com/huy1234/image/upload/v1614945795/testing/e508c138-fc11-4776-961f-c212ecfd482b.jpg",
+                        "price": 40,
+                        "description": "Newly bought",
+                        "deliveryType": "No",
+                        "contact": "nguyen@123joe.com",
+                        "author": "nguyen",
+                        "created": "2021-03-05T12:03:16.123Z",
+                        "createdAt": "2021-03-05T12:03:16.124Z",
+                        "updatedAt": "2021-03-05T12:03:16.124Z",
+                        "__v": 0
+                    },
+                    {
+                        "_id": "60421e73a385b14504d0f07d",
+                        "title": "Koira",
+                        "category": "Toy",
+                        "location": "Oulu",
+                        "images": "https://res.cloudinary.com/huy1234/image/upload/v1614945907/testing/bae0a418-2542-4fd6-add4-50004ae543ed.jpg",
+                        "price": 35,
+                        "description": "Newly bought",
+                        "deliveryType": "No",
+                        "contact": "alo@alo123.com",
+                        "author": "alo ",
+                        "created": "2021-03-05T12:05:07.958Z",
+                        "createdAt": "2021-03-05T12:05:07.959Z",
+                        "updatedAt": "2021-03-05T12:05:07.959Z",
+                        "__v": 0
+                    },
+                    {
+                        "_id": "60421e89a385b14504d0f07e",
+                        "title": "AmongUs",
+                        "category": "Toy",
+                        "location": "Oulu",
+                        "images": "https://res.cloudinary.com/huy1234/image/upload/v1614945928/testing/3933bdd2-ce3d-44d9-a1c8-f16ce216d450.jpg",
+                        "price": 35,
+                        "description": "Newly bought",
+                        "deliveryType": "No",
+                        "contact": "alo3@alo123.com",
+                        "author": "alo 3",
+                        "created": "2021-03-05T12:05:29.099Z",
+                        "createdAt": "2021-03-05T12:05:29.100Z",
+                        "updatedAt": "2021-03-05T12:05:29.100Z",
+                        "__v": 0
+                    },
+                    {
+                        "_id": "60421efb2e5ec94a18dc46a4",
+                        "title": "Angry Bird 2",
+                        "category": "Entertainment",
+                        "location": "Oulu",
+                        "images": "https://res.cloudinary.com/huy1234/image/upload/v1614946042/testing/545dc1ec-e484-4eeb-8df5-fa04954602b9.jpg",
+                        "price": 10,
+                        "description": "Newly bought",
+                        "deliveryType": "No",
+                        "contact": "alo3@alo123.fi",
+                        "author": "alo 33333",
+                        "created": "2021-03-05T12:07:23.198Z",
+                        "createdAt": "2021-03-05T12:07:23.201Z",
+                        "updatedAt": "2021-03-05T12:07:23.201Z",
+                        "__v": 0
+                    }
+                ]
+            }
+        '404':
+          description: Something wrong happened
+      operationId: get-products
+      description: Show all products
+  /update-product:
+    put:
+      summary: ''
+      operationId: put-update-product
+      responses:
+        '200':
+          description: Updated successfully
+        '401':
+          description: You need to login to update your product
+        '404':
+          description: SOme fields is missing
+      description: Update information about the product
+      parameters:
+        - schema:
+            type: number
+          in: query
+          name: productId
+          required: true
+  /delete-product:
+    delete:
+      summary: ''
+      operationId: delete-delete-product
+      responses:
+        '200':
+          description: |
+            Delete succesfully
+        '401':
+          description: You need to login to delete-product
+        '404':
+          description: Something wrong happend
+      description: Delete a product
+      parameters:
+        - schema:
+            type: number
+          in: query
+          name: productId
+          required: true
+  /register:
+    post:
+      summary: ''
+      operationId: post-register
+      responses:
+        '200':
+          description: User added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  password:
+                    type:
+                      - string
+                      - number
+                required:
+                  - name
+                  - email
+                  - password
+        '404':
+          description: User already exist
+      description: Create a new user
+  /login:
+    post:
+      summary: ''
+      operationId: post-login
+      responses:
+        '200':
+          description: Login successfully
+          headers:
+            Authorization:
+              schema:
+                type: number
+              description: Bearer + jwt token
+        '404':
+          description: User not exist or wrong password
+      description: Login
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      x-examples:
+        Alice Smith:
+          id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type:
+            - string
+            - number
+      required:
+        - name
+        - email
+        - password
+    Product:
+      title: Product
+      type: object
+      properties:
+        title:
+          type: string
+        category:
+          type: string
+        location:
+          type: string
+        images:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        deliveryType:
+          type: string
+        contact:
+          type: string
+      required:
+        - title
+        - category
+        - location
+        - images
+        - price
+        - description
+        - deliveryType
+        - contact
