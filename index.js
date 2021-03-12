@@ -17,7 +17,7 @@ app.use(shopRoutes)
 mongoose
     .connect(process.env.MONGODB_URL)
     .then(result => {
-        app.listen(3000)
+        app.listen(process.env.PORT || 3000)
     })
     .catch(err => {
         console.log(err)
@@ -27,7 +27,7 @@ mongoose
     module.exports = {
         start: function () {
             serverInstance = app.listen(() => {
-                console.log(`Example app listening at http://localhost:${3000}`)
+                console.log('App is listening ')
             })
         },
         close: function () {
