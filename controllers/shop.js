@@ -143,6 +143,7 @@ const destroy = (req, res, next) => {
         })
 }
 
+
 module.exports = {
     opening,
     addProduct,
